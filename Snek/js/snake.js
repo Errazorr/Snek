@@ -85,6 +85,41 @@ $(document).ready(function() {
             direction = "bas";
             touchePressee = true;
         }
+
+        else if (key == "83" && !touchePressee) {
+          $('#pause').text("Continuer");
+          enPause = true;
+          pause();
+        }
+
+        else if (key == "80" && !touchePressee) {
+          canvas.focus();
+          $('#pause').text("Pause");
+          enPause = false;
+          jouer();
+        }
+
+        else if (key == "82" && !touchePressee) {
+          pause();
+          $('#pause').text("Pause");
+          $('#pause').addClass("disabled");
+          $(this).addClass("disabled");
+          $('footer').slideUp(500);
+          canvas.slideUp(500, function() {
+              ctx.clearRect(0, 0, LARGEUR, HAUTEUR);
+              canvas.slideDown(500, function() {
+                  $('footer').slideDown(500, function() {
+                      enPause = false;
+                      touchePressee = false;
+                      canvas.focus();
+                      $('#pause').removeClass("disabled");
+                      $('#reset').removeClass("disabled");
+                      initialisation();
+                      jouer();
+                  })
+              })
+          });
+        }
     });
 
 
@@ -260,7 +295,7 @@ $(document).ready(function() {
 
         ctx.fillStyle = couleur;
         ctx.fillRect(caseX * TAILLECASE, caseY * TAILLECASE, TAILLECASE, TAILLECASE);
-        ctx.strokeStyle = "white";
+        ctx.strokeStyle = "black";
         ctx.strokeRect(caseX * TAILLECASE, caseY * TAILLECASE, TAILLECASE, TAILLECASE);
     }
 
@@ -365,7 +400,7 @@ $(document).ready(function() {
         /* Mise à jour du serpent. */
         for (var i = 0; i < serpent.length; i++) {
             var corps = serpent[i];
-            dessiner(corps.x, corps.y, "#5CB85C");
+            dessiner(corps.x, corps.y, "#FDBA33");
         }
 
         dessiner(nourriture.x, nourriture.y, "#2C75FF");
