@@ -320,16 +320,24 @@ $(document).ready(function() {
 
         /* Gestion du dépassement des bordures verticales. */
         if (caseX == -1) {
-            caseX = (LARGEUR / TAILLECASE) - 1;
-        } else if (caseX == LARGEUR / TAILLECASE) {
-            caseX = 0;
+            pause();
+            fin(score);
+        }
+
+        else if (caseX == LARGEUR / TAILLECASE) {
+            pause();
+            fin(score);
         }
 
         /* Gestion du dépassement des bordures horizontales. */
         if (caseY == -1) {
-            caseY = (HAUTEUR / TAILLECASE) - 1;
-        } else if (caseY == HAUTEUR / TAILLECASE) {
-            caseY = 0;
+            pause();
+            fin(score);
+        }
+
+        else if (caseY == HAUTEUR / TAILLECASE) {
+            pause();
+            fin(score);
         }
 
         /* Gestion des collisions du serpent. */
@@ -343,7 +351,9 @@ $(document).ready(function() {
             var queue = {x: caseX, y: caseY};
             score++;
             creerNourriture();
-        } else {
+        }
+
+        else {
             var queue = serpent.pop();
             queue.x = caseX;
             queue.y = caseY;
