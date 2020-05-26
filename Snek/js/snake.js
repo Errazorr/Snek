@@ -368,7 +368,7 @@ $(document).ready(function() {
             dessiner(corps.x, corps.y, "#5CB85C");
         }
 
-        dessiner(nourriture.x, nourriture.y, "#FFFF00");
+        dessiner(nourriture.x, nourriture.y, "#2C75FF");
         $('#score').text("Score : " + score);
     }
 });
