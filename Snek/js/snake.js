@@ -110,7 +110,7 @@ $(document).ready(function() {
     $('#recommencer').click(function() {
         $('footer').fadeOut(500);
         $('#fin').fadeOut(500, function() {
-            $('#fin-desc').text('Le serpent a touché sa queue !');
+            $('#fin-desc').text('JUDAAAAAAAAA!!');
             $('header').slideDown(500);
             canvas.slideDown(500, function() {
                 $('footer').slideDown(500, function() {
